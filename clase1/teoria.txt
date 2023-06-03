@@ -48,6 +48,11 @@ Que es un servlet container
     Tiene una interfaz que permite instanciar un objeto dada un url.
 
 
+Para levantar el apache tomcat
+
+desde la carpeta /opt/apache-tomcat-9.0.75/bin:
+
+java -cp tomcat-juli.jar;bootstrap.jar org.apache.catalina.startup.Bootstrap
 
 
 
