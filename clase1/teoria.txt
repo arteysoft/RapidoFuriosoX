@@ -1,0 +1,56 @@
+Infraestructura web (Systema OSI)
+
+Tipos de conmutación: 
+   Circuito
+   Conmutacion por paquete (Red IP)
+
+
+Capa física 
+Capa datos II
+Capa IP: Administra direcciones de red. Vias alternativas para llegar de un cliente a un servidor. Routers
+Capa TCP: Capa que permite basicamente controlar el orden en que llegan los paquetes.
+Capa HTTP: Http es un protocolo basado en ASCII. Tener en cuenta que todas las codificaciones estan basadas en ASCII.
+
+HTTP Vemos que es un protocolo cliente / servidor. Significa que el cliente inicia y el servidor responde.
+
+GET / HTTP/1.1                 En http vamos a utilizar tipicamente 4 verbos GET, POST, PUT, DELETE
+Host: www.cronista.com         donde voy a buscar la info (de nombre a ip que protocolo es ? dns)
+User-Agent: curl/8.0.1, Mozilla, Chrome, IExplorer, Android
+
+HTTP/1.1 200 OK
+Content-Type: text/html  (Esto es importante para que el browser sepa que es lo que tiene que renderizar)
+Content-Length: 539548   (Que cantidad de caracteres voy a recibir)
+
+
+Los codigos de respuesta mas comunes:
+
+200,201,301,303,400,401,403,405, 500 y arriba.
+
+
+HTTP y HTTPS uno es plano, y se puede interceptar, otro es encriptado, se puede interceptar pero es dificil
+des-encriptar.
+
+
+Que es un http Server. Es un servidor que responde consultas realizadas mediante el protocolo HTTP.
+
+Servidor HTTP Estatico: Brinda recursos como imagenes, textos, HTML, JSON, mp4, mp3, etc.
+Servidor HTTP Dinámico: Brinda recursos generados en el momento.
+                               PHP, JAVA, JavaScript, etc.
+
+Algunos servidores HTTP mas comunes son:
+
+    nginx
+    apache 
+    apache tomcat (porque es un servlet container)
+
+Que es un servlet container
+
+    Tiene una interfaz que permite instanciar un objeto dada un url.
+
+
+
+
+
+
+
+
