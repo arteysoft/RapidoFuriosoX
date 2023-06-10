@@ -1,0 +1,25 @@
+Arquitectura
+
+Todos los protocolos y dispositivos por los que pasa una consulta HTTP
+ * Front end
+ * Load Balancer
+ * Montar todo el esquema en linux (Digital ocean)
+   Paso a paso. 
+
+Que me gustaría ver ?
+
+Cliente TCP 
+Proxy Reverso
+Api y utilizarla
+
+Tarea
+
+Dentro del post, hacer una conexion a base de datos, e insertar el alumno.
+
+Para esto necesito
+
+MySQL
+Script de la tabla
+La conexion solamente con JDBC y prepared statement
+
+
