@@ -9,6 +9,9 @@ import com.google.gson.Gson;
 
 import edu.it.components.ConectorJPA;
 import edu.it.components.Utiles;
+import edu.it.errores.HTTP400BadRequest;
+import edu.it.errores.HTTP404NotFound;
+import edu.it.errores.HTTPErrorCode;
 import edu.it.model.Alumno;
 
 import java.io.BufferedReader;
@@ -34,6 +37,8 @@ public class AlumnosController extends HttpServlet {
             String pathInfo = request.getPathInfo();
             var idAlumno = pathInfo.replace("/", "");
             
+            
+            try 
             {
 				// Persistir en una base de datos
 				var conectorJPA = new ConectorJPA();
@@ -42,9 +47,7 @@ public class AlumnosController extends HttpServlet {
 				query.setParameter("idParam", idAlumno);
 				var resultado = query.getResultList();
 				if (resultado.size() == 0) {
-					// Responder 404 NOT Found
-					response.setStatus(404);
-					out.println("");
+					throw new HTTP404NotFound();
 				}
 				else {
 					var alu = resultado.get(0);
@@ -53,10 +56,18 @@ public class AlumnosController extends HttpServlet {
 					response.setStatus(200);
 				}
 			}
+            catch (HTTPErrorCode ex) {
+            	response.setStatus(ex.getErrorCode());            	
+            }
+            catch (Exception ex) {
+            	response.setStatus(500);
+            }
     }
     public void doPost(HttpServletRequest request, HttpServletResponse response)
             throws IOException, ServletException {
     		
+    		Alumno alumno = null;
+    	
     		try {
     				var isreader = new InputStreamReader(request.getInputStream());
     				var buffReader = new BufferedReader(isreader);
@@ -69,20 +80,28 @@ public class AlumnosController extends HttpServlet {
     				
     				System.out.println(strBld.toString());
     				
-    				var alumno = new Gson().fromJson(strBld.toString(), Alumno.class);
     				
-    				{
-    					// Persistir en una base de datos
-    					var conectorJPA = new ConectorJPA();
-    					var em = conectorJPA.getEntityManager(); // EntityManager
-    					var tx = em.getTransaction(); // EntityTransaction
-    					tx.begin();
-    					em.persist(alumno);
-    					tx.commit();
+    				
+    				try {
+    					alumno = new Gson().fromJson(strBld.toString(), Alumno.class);
     				}
+    				catch (Exception ex) {
+    					throw new HTTP400BadRequest();
+    				}    				
+    				
+					// Persistir en una base de datos
+					var conectorJPA = new ConectorJPA();
+					var em = conectorJPA.getEntityManager(); // EntityManager
+					var tx = em.getTransaction(); // EntityTransaction
+					tx.begin();
+					em.persist(alumno);
+					tx.commit();
     				
     				response.setStatus(201);
     		}
+    		catch (HTTPErrorCode ex) {
+            	response.setStatus(ex.getErrorCode());            	
+            }
     		catch (Exception ex) {
     			response.setStatus(500);
     		}
