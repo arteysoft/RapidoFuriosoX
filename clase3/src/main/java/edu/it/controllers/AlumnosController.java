@@ -31,9 +31,28 @@ public class AlumnosController extends HttpServlet {
             var alumno = new Alumno[] {Utiles.generarAlumnoRandom(), Utiles.generarAlumnoRandom(), Utiles.generarAlumnoRandom()};
             var alumnoJson = new Gson().toJson(alumno);
             
-            out.print(alumnoJson);
+            String pathInfo = request.getPathInfo();
+            var idAlumno = pathInfo.replace("/", "");
             
-            response.setStatus(200);
+            {
+				// Persistir en una base de datos
+				var conectorJPA = new ConectorJPA();
+				var em = conectorJPA.getEntityManager(); // EntityManager				
+				var query = em.createQuery("FROM Alumno a where id = :idParam", Alumno.class);
+				query.setParameter("idParam", idAlumno);
+				var resultado = query.getResultList();
+				if (resultado.size() == 0) {
+					// Responder 404 NOT Found
+					response.setStatus(404);
+					out.println("");
+				}
+				else {
+					var alu = resultado.get(0);
+					var strAlu = new Gson().toJson(alu);
+					out.println(strAlu);
+					response.setStatus(200);
+				}
+			}
     }
     public void doPost(HttpServletRequest request, HttpServletResponse response)
             throws IOException, ServletException {
