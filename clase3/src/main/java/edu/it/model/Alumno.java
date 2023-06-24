@@ -1,7 +1,11 @@
 package edu.it.model;
 
+import javax.persistence.*;
 
+@Entity
+@Table(name="alumnos")
 public class Alumno {
+	@Id
     public String id;
     public String nombre;
     public String apellido;

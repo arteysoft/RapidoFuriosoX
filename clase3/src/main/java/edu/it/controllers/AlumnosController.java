@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.google.gson.Gson;
 
+import edu.it.components.ConectorJPA;
 import edu.it.components.Utiles;
 import edu.it.model.Alumno;
 
@@ -51,7 +52,15 @@ public class AlumnosController extends HttpServlet {
     				
     				var alumno = new Gson().fromJson(strBld.toString(), Alumno.class);
     				
-    				// Como ponemos esto en una base de datos MySQL
+    				{
+    					// Persistir en una base de datos
+    					var conectorJPA = new ConectorJPA();
+    					var em = conectorJPA.getEntityManager(); // EntityManager
+    					var tx = em.getTransaction(); // EntityTransaction
+    					tx.begin();
+    					em.persist(alumno);
+    					tx.commit();
+    				}
     				
     				response.setStatus(201);
     		}
@@ -84,6 +93,14 @@ public class AlumnosController extends HttpServlet {
     			response.setStatus(500);
     		}
     }
-    
-    
+    public void doDelete(HttpServletRequest request, HttpServletResponse response)
+            throws IOException, ServletException {
+    	
+    	try {
+			response.setStatus(200);    	
+    	}
+		catch (Exception ex) {
+			response.setStatus(200);
+		}
+    }
 }

@@ -10,11 +10,11 @@
                 <properties>
 			<property name="hibernate.dialect" value="org.hibernate.dialect.MariaDB53Dialect"></property>
 			<property name="hibernate.show_sql" value="true" />
-			<property name="hibernate.hbm2ddl.auto" value="none" />
+			<property name="hibernate.hbm2ddl.auto" value="update" />
 			<property name="hibernate.connection.driver_class" value="org.mariadb.jdbc.Driver" />
 			<property name="hibernate.connection.username" value="root" />
 			<property name="hibernate.connection.password" value="" />
-			<property name="hibernate.connection.url" value="jdbc:mariadb://localhost:3306/jordan23" />
+			<property name="hibernate.connection.url" value="jdbc:mariadb://localhost:3306/rapidofuriosox" />
 		</properties>
 	</persistence-unit>
 	<persistence-unit name="pg" transaction-type="RESOURCE_LOCAL">
