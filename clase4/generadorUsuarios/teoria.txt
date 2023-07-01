@@ -5,5 +5,29 @@ Password
 
 La password va encriptada con un sistema que se llama hash o checksum
 
+como se crea un usuario
 
+con su nombre de usuario
+con su passwordEncriptada = sha256(passwordEnClear + salt)
+con un salt aleatorio pero grande
+
+Si el usuario se loguea correctamente como lo se ?
+
+recibo un usuario lo busco en la tabla de Usuarios
+me traigo el salt lo conbino con la password en clear 
+y si ambas password coinciden (las encriptadas) le doy acceso
+
+Que es dar acceso.
+
+Le doy un access token que le sirve durante un periodo de tiempo
+
+Luego de ese tiempo, el usuario debe exhibir su clave nuevamente.
+
+PORQUE LA PALABRA EXHIBIR (La idea es que la clave se use la menor cantidad de veces)
+-------------------------------------------------------------------------------------
+
+Hay dos tipos de token 
+
+1) Es un combinacion de letras y numeros que esta en una base de datos asociada a un usuario
+2) JWT Que tiene info del usuario de manera explicita.
 
