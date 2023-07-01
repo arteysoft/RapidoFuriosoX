@@ -1,0 +1,9 @@
+Autenticacion (Quien soy y las credenciales que tengo)
+
+Nombre de usuario
+Password
+
+La password va encriptada con un sistema que se llama hash o checksum
+
+
+
