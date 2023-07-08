@@ -1,0 +1,6 @@
+Cliente Postman ------------------------------------------> Usuario:password ---------------> Server
+                <-------------------------------------- ACCESS TOKEN <---------------------- validar
+Cliente HTTP GET
+             POST
+             PUT
+             DELETE ----------------------------------- ACCESS TOKEN -----------------------> Autenticar
