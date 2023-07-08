@@ -21,6 +21,7 @@ import edu.it.errores.HTTPErrorCode;
 import edu.it.model.Alumno;
 import edu.it.model.Usuario;
 import edu.it.model.UsuarioPasswordDTO;
+import edu.it.utiles.JWTUtil;
 import edu.it.utiles.Utiles;
 
 public class LoginController extends HttpServlet {
@@ -57,6 +58,10 @@ public class LoginController extends HttpServlet {
 		 */
 		
 		em.close();
+		
+		// Si llego hasta aca ? generar el TOKEN con la libreria
+		JWTUtil.crearJWT("aca va el id usuario");
+		
 	}
 	
 	public void doPost(HttpServletRequest request, HttpServletResponse response)

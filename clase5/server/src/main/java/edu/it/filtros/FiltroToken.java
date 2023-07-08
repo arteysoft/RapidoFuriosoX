@@ -37,10 +37,15 @@ public class FiltroToken implements Filter {
 				throw new UnauthorizedException();
 			}
 			
+			// Aca, NO vamos a utilizar equals, sino que vamos a traer el token
+			// validarlo con la libreria
+			// y si esta todo ok. Lo dejamos pasar. con el doFilter.
+			
 			if (token.equals("holis")) {
 				chain.doFilter(request, response);
 				return;
 			}
+			
 			throw new UnauthorizedException();
 		}
 		catch (HTTPErrorCode ex) {

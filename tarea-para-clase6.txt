@@ -1,0 +1,8 @@
+Tarea para la clase #6
+
+1) Copiar el utilitario de JWT al server
+2) En LoginController, si el usuario es valido, crear un jwt con el idDeUsuario
+3) Luego en el postman van a poner x-token y el token que nos envio el server
+4) En el filtro donde hoy estamos verificando que diga "holis" vamos a
+   verificar que el token sea valido.
+
