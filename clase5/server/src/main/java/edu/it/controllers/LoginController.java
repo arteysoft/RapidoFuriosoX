@@ -3,6 +3,7 @@ package edu.it.controllers;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.io.PrintWriter;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -76,6 +77,9 @@ public class LoginController extends HttpServlet {
     				
     				verificarUsuario(usuario.usuario, usuario.password);
     				System.out.println("Son iguales");
+    				
+    				PrintWriter out = response.getWriter();
+    				out.println("{\"token\":\"holis\"}");
 					
     		}
     		catch (HTTPErrorCode ex) {
