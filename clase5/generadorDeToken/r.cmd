@@ -1,0 +1,1 @@
+java -jar target\GeneradorToken-ALL.jar
