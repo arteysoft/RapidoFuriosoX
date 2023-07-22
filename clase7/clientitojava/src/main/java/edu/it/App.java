@@ -5,6 +5,8 @@ import java.util.List;
 
 import com.google.gson.Gson;
 
+import edu.it.ejemplocallback.Clientito;
+import edu.it.ejemplocallback.Contador;
 import edu.it.model.InputConsultaOpciones;
 import edu.it.model.PrecioVolatilidad;
 import okhttp3.MediaType;
@@ -41,8 +43,20 @@ public class App {
       			System.out.println("----------------------");
       		}
 	}
+	private static void ejemploCallBacksEnJavascript() {
+		/*
+		 * Tengo una libreria que hace una operacion y cada tanto me va informando el avance
+		 */
+		
+		new Contador(new Clientito()).run();
+		
+	}
     public static void main(String[] args) throws Exception {
         System.out.println("Curso patrones - Bienvenidos");
+        
+        ejemploCallBacksEnJavascript();
+        
+        System.exit(0);
         
         Double precio = 15.37;
         
