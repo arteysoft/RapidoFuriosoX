@@ -27,14 +27,8 @@ public class OpcionesController {
 	}
 	
 	@PostMapping
-	public void calcularOpcionesPost() {		
-		
-		Calculadora.calcular(new InputConsultaOpciones(
-				"call",
-				"ago",
-				"14.48",
-				"10000",
-				"539"
-				));
+	public List<PrecioVolatilidad> calcularOpcionesPost(@RequestBody InputConsultaOpciones inputConsultaOpciones) {
+		System.out.println(new Gson().toJson(inputConsultaOpciones));
+		return Calculadora.calcular(inputConsultaOpciones);
 	}
 }

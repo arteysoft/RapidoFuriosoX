@@ -1,0 +1,1 @@
+java -jar target\Adapter-1.1.jar miApp
