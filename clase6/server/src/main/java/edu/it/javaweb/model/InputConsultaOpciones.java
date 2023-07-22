@@ -14,4 +14,7 @@ public class InputConsultaOpciones {
 		this.strike = strike;
 		this.ccl = ccl;
 	}
+
+	public InputConsultaOpciones() {
+	}
 }
