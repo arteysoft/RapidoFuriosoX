@@ -1,0 +1,30 @@
+class App {
+   public int contador;
+   private Render renderizador;
+
+   public App(Render r) {
+      this.renderizador = r;
+   }
+
+   public setContador(int n) {
+      this.contador = n;
+      renderizador.renderizar(n)
+   }
+}
+
+class Render {
+   renderizar(int x) {
+     System.out.println(x);
+   }
+}
+
+
+class Main {
+   public static void main() {
+      var app = new App(new Renderizador());
+      app.contador = 3;
+      app.contador = 4;
+      app.contador = 5;
+      app.setContador(10000);
+   }
+}
