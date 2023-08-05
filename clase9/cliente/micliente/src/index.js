@@ -3,12 +3,13 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './main/App.jsx';
 import Calculadora from './main/Calculadora'
+import Opciones from './main/Opciones'
 import reportWebVitals from './reportWebVitals';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <Calculadora />
+    <Opciones />
   </React.StrictMode>
 );
 

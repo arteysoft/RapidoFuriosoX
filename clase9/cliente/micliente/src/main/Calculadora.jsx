@@ -19,7 +19,8 @@ function RadioButton(props) {
       </>
     );
 }
-  
+
+
 
 
 export default function Calcular() {
@@ -49,7 +50,7 @@ export default function Calcular() {
                 break
         }
     }
-        
+
 
     return (
         <>
@@ -64,6 +65,7 @@ export default function Calcular() {
         <button onClick={setResultadoWrapper}>Calcular</button>
         <br />
         <label htmlFor="result">{resultado}</label>
+        <hr />
         </>
     );
 }
