@@ -1,0 +1,33 @@
+ssh -i digitalocean root@209.38.248.65
+
+pwd me dice en que carpeta estoy
+
+wget https://download.oracle.com/java/19/archive/jdk-19.0.1_linux-x64_bin.tar.gz
+
+sha256sum jdk-19.0.1_linux-x64_bin.tar.gz
+
+para descomprimir el archivo
+
+tar xvf jdk-19.0.1_linux-x64_bin.tar.gz
+
+Ahora lo paso a /opt/jdk-19.0.1
+
+mv jdk-19.0.1 /opt
+
+el path esta en:
+
+/opt/jdk-19.0.1/bin/
+
+para tenerlo fijo, se agrega en un archivo de startup que se llama .bashrc
+
+cd solo vuelvo a mi carpeta de home
+
+nano .bashrc y al final de todo
+export PATH=$PATH:/opt/jdk-19.0.1/bin/
+
+para copiar el .jar ? puedo usar un programa GUI visual
+
+o simplemente scp
+
+scp -i digitalocean apiopciones.jar root@209.38.248.65:/root/api
+
