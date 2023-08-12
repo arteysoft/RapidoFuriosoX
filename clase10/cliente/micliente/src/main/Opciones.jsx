@@ -20,7 +20,7 @@ function BotonRefrescar(props) {
         .catch(err => {
             console.log(err)
         })
-    }, [huboCambios])
+    }, [huboCambios, props.dolar])
 
     window.disparar = () => setHuboCambios(!huboCambios)
     window.ver = () => console.log(huboCambios)
@@ -32,8 +32,8 @@ function BotonRefrescar(props) {
 
 function PrecioVolatilidad(props) {
 
-    return props.datos.map(z => (
-        <tr key={z*z.volatilidad}>
+    return props.datos.map((z, index) => (
+        <tr key={index}>
             <td>{z.precio}</td>
             <td>{z.volatilidad}</td>
         </tr>
@@ -61,13 +61,32 @@ function DatosOpciones(props) {
 function EntradaDolar(props) {
     let [valorDolar, setValorDolar] = useState(500)
 
+    let propagar = (nv) => {
+        setValorDolar(nv)
+        props.setterFunction(nv)
+        console.log(nv)
+    }
+
     let actualizar = e => {
-        setValorDolar(e.target.value)
-        props.setterFunction(e.target.value)
+        let entero = parseInt(e.target.value)
+        propagar(entero)
+    }
+
+    let cambiarValor = (subeBaja) => {
+        if (subeBaja === 'sube') {
+            propagar(valorDolar + 1)
+        }
+        else {
+            propagar(valorDolar - 1)
+        }
     }
 
     return (
-        <><input className="entradaDolar" type="text" onChange={actualizar} value={valorDolar} /></>
+        <>
+            <input className="entradaDolar" type="text" onChange={actualizar} value={valorDolar} />
+            <button className="botonSubeBaja" onClick={z => cambiarValor('sube')}>SUBE</button>
+            <button className="botonSubeBaja" onClick={z => cambiarValor('baja')}>BAJA</button>
+        </>
     )
 }
 
