@@ -1,0 +1,14 @@
+.tablaOpciones {
+    margin-top: 20px;
+    margin-left: 20px;    
+    border: 1px solid black;
+}
+
+.tablaOpciones td {
+    height: 30px;
+    width: 150px;
+}
+
+.entradaDolar {
+    margin-left: 20px;
+}
